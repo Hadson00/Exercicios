@@ -1,17 +1,17 @@
 def valido(s):
-    stack = []
-    mapping = {')': '(', '}': '{', ']': '['}
+    lista = []
+    parent = {')': '(', '}': '{', ']': '['}
 
-    for char in s:
-        if char in mapping.values():
-            stack.append(char)
-        elif char in mapping.keys():
-            if not stack or mapping[char] != stack.pop():
+    for carac in s:
+        if carac in parent.values():
+            lista.append(carac)
+        elif carac in parent.keys():
+            if not lista or parent[carac] != lista.pop():
                 return False
         else:
             return False
 
-    return not stack
+    return not lista
 
 
 string1 = str(input("Digite algo:"))
