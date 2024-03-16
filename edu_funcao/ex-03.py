@@ -1,7 +1,6 @@
-def digite(x):
-    for i in range(len(x)):
-        i+=i
-    return i
+def contar_letras(string):
+    return len(string)
 
-b=input("Digite uma palavra: ")
-print(digite(b))
+palavra = input("Digite uma palavra: ")
+quantidade_letras = contar_letras(palavra)
+print(f"A string possui {quantidade_letras} letras.")
