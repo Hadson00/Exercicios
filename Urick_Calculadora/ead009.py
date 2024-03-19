@@ -1,61 +1,101 @@
-#feito com muita atenção e passação de raiva, por que resolvi usar um exemplo da aula da facul do mesmo exercício#
-
 import math 
 class calculator :
-    def s (self, x, y):
+    def soma (self, x, y):
         return x + y
 
-    def sub (self, x, y):
+    def subtracao (self, x, y):
         return x - y
 
-    def multi (self, x, y):
+    def multiplicacao (self, x, y):
         return x * y
     
-    def div (self, x, y):
-        if x != 0:
-            return x / y
-        else:
-            return "Erro"
-    def p (self, valor , percentual ):
+    def divisao (self, x, y):
+        if x == 0 or y == 0:
+            return "ERRO!! Divisão por zero!"
+        return x / y
+        
+    def percentual (self, valor , percentual ):
         return (valor * percentual ) / 100
-    def raiz (self, x ) :
+    def raiz (self, x   ) :
         return math.sqrt (x)
-    def pot (self, b, e ) :
+    def potencia (self, b, e ) :
         return b ** e 
 
 def main():
-    calc = calculator ()
+    calculadora = calculator ()
 
     operacoes = {
-        '1': calc.s,
-        '2': calc.sub,
-        '3': calc.multi,
-        '4': calc.div,
-        '5': calc.p,
-        '6': calc.raiz,
-        '7': calc.pot,
-
+        '1': calculadora.soma,
+        '2': calculadora.subtracao,
+        '3': calculadora.multiplicacao,
+        '4': calculadora.divisao,
+        '5': calculadora.percentual,
+        '6': calculadora.raiz,
+        '7': calculadora.potencia,
     }
 
-    op = ''
-    while op != '5':
-        print("Escolha a operação:")
-        print("1. Somar")
-        print("2. Subtrair")
-        print("3. Multiplicar")
-        print("4. Dividir")
-        print("5. percentual")
-        print("6. raiz quadrada")
-        print("7. potencia")
+    operacao = ''
+    while operacao != '5':
+        print("Escolha a operação que deseja usar:")
+        print("1- Somar")
+        print("2- Subtrair")
+        print("3- Multiplicar")
+        print("4- Dividir")
+        print("5- Percentual")
+        print("6- Raiz quadrada")
+        print("7- Potência")
         
+        operacao = input("Digite o número da operação desejada: ")
 
-        op = input("Digite o número da operação desejada: ")
+        if operacao == "0":
+            print("Fim do programa")
+            break
 
-        if op in operacoes:
-            y = float(input("Digite o primeiro número: "))
-            x = float(input("Digite o segundo número: "))
-            r = operacoes[op](x, y)
-            print("Resultado:", r)
+        elif operacao == '1':
+            x = float(input("Digite o primeiro número: "))
+            y = float(input("Digite o segundo número: "))
+            resultado = calculadora.soma(x, y)
+            print(resultado)
+    
+        elif operacao == '2':
+            x = float(input("Digite o primeiro número: "))
+            y = float(input("Digite o segundo número: "))
+            resultado = calculadora.subtracao(x, y)
+            print(resultado)
+            
+        elif operacao == '3':
+            x = float(input("Digite o primeiro número: "))
+            y = float(input("Digite o segundo número: "))
+            resultado = calculadora.multiplicacao(x, y)
+            print(resultado)
+
+        elif operacao == '4':
+            x = float(input("Digite o primeiro número: "))
+            y = float(input("Digite o segundo número: "))
+            resultado = calculadora.divisao(x, y)
+            print(resultado)
+
+        elif operacao == '5':
+            x = float(input("Digite o primeiro número: "))
+            y = float(input("Digite o segundo número: "))
+            resultado = calculadora.percentual(x, y)
+            print(resultado)
+
+        elif operacao == '6':
+            x = float(input("Digite o primeiro número: "))
+            resultado = calculadora.raiz(x)
+            print(resultado)
+
+        elif operacao == '7':
+            x = float(input("Digite o primeiro número: "))
+            y = float(input("Digite o segundo número: "))
+            resultado = calculadora.potencia(x, y)
+            print(resultado)
+
+        else:
+            print("Operação inválida!")
+        break
 
 if __name__ == "__main__":
     main()
+
