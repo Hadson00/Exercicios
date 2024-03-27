@@ -36,7 +36,7 @@ def main():
 
     operacao = ''
     while operacao != '5':
-        print("Escolha a operação que deseja usar:")
+        print("Escolha a operação que deseja usar ou digite 0 para finalizar:")
         print("1- Somar")
         print("2- Subtrair")
         print("3- Multiplicar")
