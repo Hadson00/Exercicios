@@ -1,46 +1,38 @@
-import random
-
-class Bichinho:
+class BichinhoVirtual:
     def __init__(self, nome):
         self.nome = nome
-        self.fome = random.randint(0, 10)  
-        self.tedio = random.randint(0, 10)  
+        self.fome = 50
+        self.tedio = 50
+    
+    def alimentar(self, quantidade):
+        self.fome -= quantidade * 2  
+        
+        if self.fome < 0:
+            self.fome = 0
+    
+    def brincar(self, tempo):
+        self.tedio -= tempo * 3  
+        
+        if self.tedio < 0:
+            self.tedio = 0
+    
+    def passar_tempo(self):
+        self.fome += 5
+        self.tedio += 5
+        
+        if self.fome > 100:
+            self.fome = 100
+        
+        if self.tedio > 100:
+            self.tedio = 100
+    
+    def mostrar_estado(self):
+        print(f"Nível de fome de {self.nome}: {self.fome}")
+        print(f"Nível de tédio de {self.nome}: {self.tedio}")
 
-    def alimentar(self):
-        self.fome -= 1
-        print(f"{self.nome} foi alimentado!")
 
-    def brincar(self):
-        self.tedio -= 1
-        print(f"{self.nome} brincou e está mais feliz!")
-
-    def ouvir(self):
-        print(f"{self.nome} está feliz em conversar com você!")
-
-
-fazenda = [Bichinho("Cachorro"), Bichinho("Gato"), Bichinho("Coelho")]
-
-
-while True:
-    print("\n--- Menu ---")
-    print("1. Alimentar todos os bichinhos")
-    print("2. Brincar com todos os bichinhos")
-    print("3. Ouvir todos os bichinhos")
-    print("4. Sair")
-
-    opcao = input("Escolha uma opção: ")
-
-    if opcao == "1":
-        for bichinho in fazenda:
-            bichinho.alimentar()
-    elif opcao == "2":
-        for bichinho in fazenda:
-            bichinho.brincar()
-    elif opcao == "3":
-        for bichinho in fazenda:
-            bichinho.ouvir()
-    elif opcao == "4":
-        print("Saindo...")
-        break
-    else:
-        print("Opção inválida. Escolha novamente.")
+bichinho = BichinhoVirtual("Fofinho")
+bichinho.alimentar(3)  
+bichinho.brincar(2)  
+bichinho.passar_tempo()
+bichinho.mostrar_estado()
