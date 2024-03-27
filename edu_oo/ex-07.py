@@ -36,7 +36,7 @@ class Tamagushi:
 
 if __name__ == "__main__":
     
-    tamagushi = Tamagushi("Tama", 50, 80, 3)
+    tamagushi = Tamagushi("Tama", 10, 100, 3)
 
     print("Nome:", tamagushi.retornarNome())
     print("Fome:", tamagushi.retornarFome())
