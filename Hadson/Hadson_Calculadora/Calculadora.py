@@ -3,7 +3,7 @@ import math
 class Calculator:
     def __init__(self):
         pass
-    def sum(self, number1, number2):
+    def add(self, number1, number2):
         return number1 + number2
     def subtraction(self, number1, number2):
         return number1 - number2
